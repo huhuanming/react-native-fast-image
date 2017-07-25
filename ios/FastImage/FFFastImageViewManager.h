@@ -2,4 +2,6 @@
 
 @interface FFFastImageViewManager : RCTViewManager
 
++ (void)disableCacheImagesInMemory;
+
 @end
