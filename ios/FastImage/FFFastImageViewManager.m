@@ -1,7 +1,7 @@
 #import "FFFastImageViewManager.h"
 #import "FFFastImageView.h"
 
-#import <SDWebImage/SDWebImagePrefetcher.h>
+#import "SDWebImagePrefetcher.h"
 
 @implementation FFFastImageViewManager
 
