@@ -12,15 +12,19 @@
 }
     
 - (void)setOnFastImageError:(RCTDirectEventBlock)onFastImageError {
-    _onFastImageError = onFastImageError;
-    [self reloadImage:_source];
+    if (![_onFastImageError isEqual: onFastImageError]) {
+        _onFastImageError = onFastImageError;
+        [self reloadImage:_source];
+    }
 }
     
 - (void)setOnFastImageLoad:(RCTDirectEventBlock)onFastImageLoad {
-    _onFastImageLoad = onFastImageLoad;
-    [self reloadImage:_source];
+    if (![_onFastImageLoad isEqual: onFastImageLoad]) {
+        _onFastImageLoad = onFastImageLoad;
+        [self reloadImage:_source];
+    }
 }
-    
+
 - (void)reloadImage:(FFFastImageSource *)source {
     [source.headers enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString* header, BOOL *stop) {
         [[SDWebImageDownloader sharedDownloader] setValue:header forHTTPHeaderField:key];
@@ -62,7 +66,7 @@
 }
 
 - (void)setSource:(FFFastImageSource *)source {
-    if (_source != source) {
+    if (![_source isEqual:source]) {
         _source = source;
         [self reloadImage:source];
     }
