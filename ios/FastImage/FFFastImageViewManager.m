@@ -38,8 +38,8 @@ RCT_EXPORT_METHOD(preload:(nonnull NSArray<FFFastImageSource *> *)sources)
 + (void)disableCacheImagesInMemory
 {
     [SDImageCache sharedImageCache].config.shouldCacheImagesInMemory = NO;
-    [SDImageCache sharedImageCache].config.shouldDecompressImages = NO;
-    [[SDWebImageDownloader sharedDownloader] setShouldDecompressImages:NO];
+    //[SDImageCache sharedImageCache].config.shouldDecompressImages = NO;
+    //[[SDWebImageDownloader sharedDownloader] setShouldDecompressImages:NO];
 }
 
 @end
