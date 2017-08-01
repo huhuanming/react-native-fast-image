@@ -26,6 +26,9 @@
 }
 
 - (void)reloadImage:(FFFastImageSource *)source {
+    if (!self.source || !self.onFastImageLoad || !self.onFastImageError) {
+        return;
+    }
     [source.headers enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString* header, BOOL *stop) {
         [[SDWebImageDownloader sharedDownloader] setValue:header forHTTPHeaderField:key];
     }];
